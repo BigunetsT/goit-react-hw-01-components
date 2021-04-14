@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './TransactionHistory.module.css';
 
 function TransactionListItem({ type, amount, currency }) {
   return (
@@ -13,26 +14,28 @@ function TransactionListItem({ type, amount, currency }) {
 
 const TransactionHistory = ({ items }) => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
-        </tr>
-      </thead>
-      <tbody>
-        {items.map(({ id, type, amount, currency }) => (
-          <tr key={id}>
-            <TransactionListItem
-              type={type}
-              amount={amount}
-              currency={currency}
-            />
+    <div className={styles.tableContainer}>
+      <table className={styles.transactionHistory}>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Currency</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {items.map(({ id, type, amount, currency }) => (
+            <tr key={id}>
+              <TransactionListItem
+                type={type}
+                amount={amount}
+                currency={currency}
+              />
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

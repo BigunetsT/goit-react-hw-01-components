@@ -1,0 +1,7 @@
+.Container {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  background-color: #e7ecf2;
+}
